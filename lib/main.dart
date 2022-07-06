@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   Weather? data;
 
   Future<void> getData() async {
-    data = await client.getCurrentWeather("pokhara");
+    data = await client.getCurrentWeather("kathmandu");
   }
 
   @override
@@ -41,13 +41,18 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 228, 250, 219),
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 178, 178, 176),
+          backgroundColor: Color.fromARGB(255, 232, 145, 6),
           elevation: 0.0,
           title: const Text(
             'Weather App',
             style: TextStyle(color: Colors.black),
           ),
           centerTitle: true,
+          leading: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.input),
+            color: Colors.black,
+          ),
         ),
         body: FutureBuilder(
           future: getData(),
