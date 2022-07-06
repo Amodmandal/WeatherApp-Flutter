@@ -39,62 +39,63 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: Color.fromARGB(255, 228, 250, 219),
-          appBar: AppBar(
-            backgroundColor: Color.fromARGB(255, 178, 178, 176),
-            elevation: 0.0,
-            title: const Text(
-              'Weather App',
-              style: TextStyle(color: Colors.black),
-            ),
-            centerTitle: true,
+        backgroundColor: Color.fromARGB(255, 228, 250, 219),
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 178, 178, 176),
+          elevation: 0.0,
+          title: const Text(
+            'Weather App',
+            style: TextStyle(color: Colors.black),
           ),
-          body: FutureBuilder(
-            future: getData(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 400,
-                    
-                      padding: EdgeInsets.all(20),
-                      child: Container(
-                        decoration: BoxDecoration(color: Color.fromARGB(255, 250, 232, 166),
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(20)),
-                        child: currentweather(Icons.wb_sunny_rounded,
-                            "${data!.temp}", "${data!.cityName}"),
-                      ),
+          centerTitle: true,
+        ),
+        body: FutureBuilder(
+          future: getData(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 400,
+                    padding: EdgeInsets.all(20),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 250, 232, 166),
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: currentweather(Icons.wb_sunny_rounded,
+                          "${data!.temp}", "${data!.cityName}"),
                     ),
-                    SizedBox(),
-                    const Text(
-                      'Additional Information',
-                      style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    const Divider(color: Colors.amber, thickness: 1),
-                    const SizedBox(height: 20),
-                    Container(
-                      child: additionalInformation(
-                          "${data!.wind}",
-                          "${data!.humidity}",
-                          "${data!.pressure}",
-                          "${data!.feels_like}"),
-                    )
-                  ],
-                );
-              } else if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-              return Container();
-            },
-          )),
+                  ),
+                  SizedBox(),
+                  const Text(
+                    'Additional Information',
+                    style: TextStyle(
+                        fontSize: 24,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const Divider(color: Colors.amber, thickness: 1),
+                  const SizedBox(height: 20),
+                  Container(
+                    child: additionalInformation(
+                        "${data!.wind}",
+                        "${data!.humidity}",
+                        "${data!.pressure}",
+                        "${data!.feels_like}"),
+                  )
+                ],
+              );
+            } else if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            return Container();
+          },
+        ),
+      ),
     );
   }
 }
