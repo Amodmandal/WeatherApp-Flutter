@@ -1,16 +1,7 @@
-# weatherapp
+# Weather app
 
-A new Flutter project.
+A weather app Show how to use an API and how to get data from a REST API and display the data into our App
 
-## Getting Started
+## Screenshots
+![weather](https://github.com/Amodmandal/WeatherApp-Flutter/assets/80683174/4c534c99-b3f2-472e-bd6c-f6ccb8f0280d)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
